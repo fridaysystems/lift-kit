@@ -1,6 +1,6 @@
 <?php
 
-	$count_inventory = wp_count_posts('inventory_vehicle');
+	$count_inventory = wp_count_posts( 'inventory_vehicle' );
 	$previous_link = get_previous_posts_link();
 	$next_link = get_next_posts_link();
 
