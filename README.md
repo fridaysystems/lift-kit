@@ -35,6 +35,8 @@ The HTML containing paging links at the bottom of vehicle archive pages is passe
 	echo apply_filters( 'invp_pagination_html', $pagination_html );
 	?></nav>
 
+### `invp_pagination_sentence`
+This filter wraps only the pagination sentence that reads "Showing 1 to 10 of 99 vehicles"
 
 ### `invp_odometer_word`
 Wraps the odometer unit words "Miles" and "Mileage" to allow the support of other units. This filter was introduced simultaneously with our add-on plugin, [Kilometers Instead of Miles](https://inventorypresser.com/products/plugins/kilometers-instead-of-miles/).
