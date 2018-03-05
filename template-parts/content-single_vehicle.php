@@ -198,7 +198,7 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 
 				<?php
 				// carfax
-				if ( isset( $GLOBALS['_dealer_settings']['use_carfax'] && isset( $GLOBALS['_dealer_settings']['use_carfax'] ) ) {
+				if ( isset( $GLOBALS['_dealer_settings']['use_carfax'] ) && $GLOBALS['_dealer_settings']['use_carfax'] ) {
 					?><div class="carfax-wrapper"><?php
 					echo $vehicle->carfax_icon_html();
 				?></div><?php

@@ -8,8 +8,8 @@
  */
 
 $_dealer_options['archive_templates'] = array(
-		'archive_vehicle' => 'Default',
-		'archive_shortwide' => 'Short & Wide',
+	'archive_vehicle' => 'Default',
+	'archive_shortwide' => 'Short & Wide',
 );
 
 $archive_template = get_theme_mod( 'archive_templates', current(array_keys($_dealer_options['archive_templates'])));

@@ -56,7 +56,7 @@ class Inventory_Presser_Lift_Kit {
 				'_dealer-scripts',
 				'flexslider_opts',
 				array(
-					'hover_nav' => isset( $GLOBALS['_dealer_settings']['flexslider_hover_nav'] )
+					'hover_nav' => false,
 				)
 			);
 		}
