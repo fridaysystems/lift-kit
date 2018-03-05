@@ -76,14 +76,14 @@ class Inventory_Presser_Lift_Kit {
 	}
 
 	function hooks() {
-		add_action( 'after_setup_theme', array( &$this, 'add_thumbnail_support' ) );
-		add_action( 'after_setup_theme', array( &$this, 'initialize_global_dealer_settings' ) );
-		add_action( 'widgets_init', array( &$this, 'single_vehicle_sidebars' ) );
-		add_action( 'init', array( &$this, 'count_vehicle_locations' ) );
+		add_action( 'after_setup_theme', array( $this, 'add_thumbnail_support' ) );
+		add_action( 'after_setup_theme', array( $this, 'initialize_global_dealer_settings' ) );
+		add_action( 'widgets_init', array( $this, 'single_vehicle_sidebars' ) );
+		add_action( 'init', array( $this, 'count_vehicle_locations' ) );
 		if( is_child_theme() ) {
-			add_action( 'wp_enqueue_scripts', array( &$this, 'include_parent_theme_styles' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'include_parent_theme_styles' ) );
 		}
-		add_action( 'wp_enqueue_scripts', array( &$this, 'css_and_javascript_includes' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'css_and_javascript_includes' ) );
 	}
 
 	//Include the parent theme's stylesheet
