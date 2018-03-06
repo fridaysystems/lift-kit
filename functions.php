@@ -60,19 +60,6 @@ class Inventory_Presser_Lift_Kit {
 				)
 			);
 		}
-
-		//Include CarGurus JavaScript depending on Inventory Presser settings
-		if( ( isset( $GLOBALS['_dealer_settings']['cargurus_badge_single'] ) && is_singular( self::CUSTOM_POST_TYPE ) )
-			|| ( is_post_type_archive( self::CUSTOM_POST_TYPE ) && isset( $GLOBALS['_dealer_settings']['cargurus_badge_archive'] ) ) )
-		{
-			wp_enqueue_script(
-				'_dealer-carguru',
-				get_stylesheet_directory_uri() . '/js/cargurus-badge.js',
-				null,
-				$theme_version,
-				true
-			);
-		}
 	}
 
 	function hooks() {

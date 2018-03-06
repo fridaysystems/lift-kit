@@ -208,14 +208,7 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 				if ( isset( $GLOBALS['_dealer_settings']['autocheck_id'] ) && $GLOBALS['_dealer_settings']['autocheck_id']) {
 					echo $vehicle->autocheck_icon_html();
 				}
-
-				// car gurus badge... remember that minimum level for badge to appear is 'good price'
-				if (isset($GLOBALS['_dealer_settings']['cargurus_badge_archive'])) {  ?>
-				<div class="cargurus-wrapper">
-				<span data-cg-vin="<?php echo $vehicle->vin; ?>" data-cg-price="<?php echo $vehicle->prices['price']; ?>"></span>
-				</div>
-				<?php } ?>
-
+?>
 			</div><!--/.post-content-->
 
 		</div><!--/.post-inner-->

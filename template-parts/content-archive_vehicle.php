@@ -133,11 +133,15 @@ if( 'boat' == $vehicle->type ) {
 				?></div><?php
 				} ?>
 
-				<?php if (isset($GLOBALS['_dealer_settings']['cargurus_badge_archive'])) { // car gurus badge... remember that minimum level for badge to appear is 'good price' ?>
-				<div class="cargurus-wrapper">
-					<span data-cg-vin="<?php echo $vehicle->vin; ?>" data-cg-price="<?php echo $vehicle->prices['price']; ?>"></span>
-				</div>
-				<?php } ?>
+				<?php
+				/**
+				 * CarGurus
+				 * If an add-on plugin "CarGurus Badge" is active, this
+				 * shortcode will exist
+				 */
+				if ( shortcode_exists( 'invp_cargurus_badge' ) ) {
+					do_shortcode( '[invp_cargurus_badge]' );
+				} ?>
 
 				<a class="_button _button-small _button-block" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">View Details</a>
 			</div>
