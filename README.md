@@ -11,6 +11,16 @@ Lift Kit is a set of inventory listing and vehicle detail files that can be adde
 
 Our custom hooks are prefixed with `invp_`.
 
+### `invp_accordian_content`
+Lift Kit's vehicle details page optionally includes a content accordian to display collapsible content. We like to use the accordian for data from third-parties like standard vehicle features or crash test ratings. This filter allows developers to modify content in the accordian.
+
+`apply_filters( 'invp_accordian_content', array(), $vehicle->post_ID )`
+
+### `invp_odometer_word`
+Wraps the odometer unit words "Miles" and "Mileage" to allow the support of other units. This filter was introduced simultaneously with our add-on plugin, [Kilometers Instead of Miles](https://inventorypresser.com/products/plugins/kilometers-instead-of-miles/).
+
+`apply_filters( 'invp_odometer_word', 'Miles' )`
+
 ### `invp_pagination_html`
 The HTML containing paging links at the bottom of vehicle archive pages is passed through this filter. This code sample is the entire contents of [inc/pagination.php](inc/pagination.php)
 
@@ -37,16 +47,6 @@ The HTML containing paging links at the bottom of vehicle archive pages is passe
 
 ### `invp_pagination_sentence`
 This filter wraps only the pagination sentence that reads "Showing 1 to 10 of 99 vehicles"
-
-### `invp_odometer_word`
-Wraps the odometer unit words "Miles" and "Mileage" to allow the support of other units. This filter was introduced simultaneously with our add-on plugin, [Kilometers Instead of Miles](https://inventorypresser.com/products/plugins/kilometers-instead-of-miles/).
-
-`apply_filters( 'invp_odometer_word', 'Miles' )`
-
-### `invp_accordian_content`
-Lift Kit's vehicle details page optionally includes a content accordian to display collapsible content. We like to use the accordian for data from third-parties like standard vehicle features or crash test ratings. This filter allows developers to modify content in the accordian.
-
-`apply_filters( 'invp_accordian_content', array(), $vehicle->post_ID )`
 
 ### `invp_vehicle_location_sentence`
 When there is more than one address in Inventory Presser's location taxonomy, a sentence is included on vehicle details pages identifying where the car is located. This filter wraps that sentence.
