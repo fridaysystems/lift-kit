@@ -17,62 +17,80 @@ $vehicle_info_bottom = '';
 if (method_exists($vehicle, 'get_book_value') && ( ! isset( $GLOBALS['_dealer_settings']['price_display_type'] ) || $GLOBALS['_dealer_settings']['price_display_type'] != 'genes' ) ) {
 	$book_value = $vehicle->get_book_value();
 	if( $book_value > 0  && $book_value > intval($vehicle->price) ) {
-		$vehicle_info_top .= sprintf($summary_template,'Book Value','$'.number_format($book_value, 0, '.', ',' ));
+		$vehicle_info_top .= sprintf( $summary_template, apply_filters( '_dealer_label-book_value', 'Book Value' ), '$' . number_format( $book_value, 0, '.', ',' ) );
 	}
 }
 
 // MSRP
-if (isset( $GLOBALS['_dealer_settings']['msrp_label'] ) && $GLOBALS['_dealer_settings']['msrp_label'] && isset($vehicle->prices['msrp']) && $vehicle->prices['msrp']) {
-	$vehicle_info_top .= sprintf($summary_template,$GLOBALS['_dealer_settings']['msrp_label'],number_format($vehicle->prices['msrp'], 0, '.', ',' ));
+if ( isset( $GLOBALS['_dealer_settings']['msrp_label'] ) && $GLOBALS['_dealer_settings']['msrp_label'] && isset( $vehicle->msrp ) && $vehicle->msrp ) {
+	$msrp = is_numeric( $vehicle->msrp ) ? number_format( $vehicle->msrp, 0, '.', ',' ) : $vehicle->msrp;
+	$vehicle_info_top .= sprintf( $summary_template, $GLOBALS['_dealer_settings']['msrp_label'], $msrp );
 }
 // Odometer
-if ($vehicle->odometer( ' ' . apply_filters( 'invp_odometer_word', 'Miles' ) ) && $vehicle->type != 'boat') {
-	$vehicle_info_top .= sprintf( $summary_template, apply_filters( 'invp_odometer_word', 'Mileage' ), $vehicle->odometer( ' ' . apply_filters( 'invp_odometer_word', 'Miles' ) ) );
+if ( $vehicle->odometer( ' ' . apply_filters( '_dealer_odometer_word', 'Miles' ) ) && $vehicle->type != 'boat' ) {
+	$vehicle_info_top .= sprintf(
+		$summary_template,
+		apply_filters( '_dealer_label-odometer', apply_filters( '_dealer_odometer_word', 'Mileage' ) ),
+		$vehicle->odometer( ' ' . apply_filters( '_dealer_odometer_word', 'Miles' ) )
+	);
 }
 // Exterior Color
-if ($vehicle->color) {
-	$vehicle_info_top .= sprintf($summary_template,'Exterior','<span class="vehicle-content-initcaps">'.strtolower($vehicle->color).'</span>');
+if ( $vehicle->color ) {
+	$vehicle_info_top .= sprintf(
+		$summary_template,
+		apply_filters( '_dealer_label-color', 'Exterior' ),
+		sprintf( '<span class="vehicle-content-initcaps">%s</span>', strtolower( $vehicle->color ) )
+	);
 }
 // Interior Color
-if ($vehicle->interior_color) {
-	$vehicle_info_top .= sprintf($summary_template,'Interior','<span class="vehicle-content-initcaps">'.strtolower($vehicle->interior_color).'</span>');
+if ( $vehicle->interior_color ) {
+	$vehicle_info_top .= sprintf(
+		$summary_template,
+		apply_filters( '_dealer_label-interior_color', 'Interior' ),
+		sprintf( '<span class="vehicle-content-initcaps">%s</span>', strtolower( $vehicle->interior_color ) )
+	);
 }
 // stock #
-if ($vehicle->stock_number) {
-	$vehicle_info_top .= sprintf($summary_template,'Stock',$vehicle->stock_number);
+if ( $vehicle->stock_number ) {
+	$vehicle_info_top .= sprintf( $summary_template, apply_filters( '_dealer_label-stock_number', 'Stock' ), $vehicle->stock_number );
 }
 
 //BOTTOM
 //Engine
-if ($vehicle->fuel || $vehicle->engine) {
-	$vehicle_info_bottom .= sprintf($summary_template,'Engine',implode(' ', array($vehicle->fuel,$vehicle->engine)));
+if ( $vehicle->fuel || $vehicle->engine ) {
+	$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( '_dealer_label-engine', 'Engine' ), implode( ' ', array( $vehicle->fuel, $vehicle->engine ) ) );
 }
 //Transmission
-if ($vehicle->transmission) {
-	$vehicle_info_bottom .= sprintf($summary_template,'Transmission','<span class="vehicle-content-initcaps">'.strtolower($vehicle->transmission).'</span>');
+if ( $vehicle->transmission ) {
+	$vehicle_info_bottom .= sprintf(
+		$summary_template,
+		apply_filters( '_dealer_label-transmission', 'Transmission' ),
+		sprintf( '<span class="vehicle-content-initcaps">%s</span>', strtolower( $vehicle->transmission ) )
+	);
 }
 // drive type
-if ($vehicle->drivetype) {
-	$vehicle_info_bottom .= sprintf($summary_template,'Drive Type',$vehicle->drivetype);
+if ( $vehicle->drivetype ) {
+	$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( '_dealer_label-drivetype', 'Drive Type' ), $vehicle->drivetype );
 }
+
 // vin
-if ($vehicle->vin) {
-	$vehicle_info_bottom .= sprintf($summary_template,'boat' == $vehicle->type ? 'HIN' : 'VIN', $vehicle->vin);
+if ( $vehicle->vin ) {
+	$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( '_dealer_label-vin', 'boat' == $vehicle->type ? 'HIN' : 'VIN' ), $vehicle->vin );
 }
 
 //Boat-specific fields
 if( 'boat' == $vehicle->type ) {
 	//Beam
 	if ( $vehicle->beam ) {
-		$vehicle_info_bottom .= sprintf($summary_template,'Beam',$vehicle->beam);
+		$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( '_dealer_label-beam', 'Beam' ), $vehicle->beam );
 	}
 	//Length
 	if ( $vehicle->length ) {
-		$vehicle_info_bottom .= sprintf($summary_template,'Length',$vehicle->length);
+		$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( '_dealer_label-length', 'Length' ), $vehicle->length );
 	}
 	//Hull material
 	if ( $vehicle->hull_material ) {
-		$vehicle_info_bottom .= sprintf($summary_template,'Hull Material',$vehicle->hull_material);
+		$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( '_dealer_label-hull_material', 'Hull Material' ), $vehicle->hull_material );
 	}
 }
 
