@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package _dealer
+ * @package lift-kit
  */
 
 $_dealer_options['archive_templates'] = array(
