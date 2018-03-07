@@ -16,6 +16,22 @@ Lift Kit's vehicle details page optionally includes a content accordian to displ
 
 `apply_filters( 'invp_accordian_content', array(), $vehicle->post_ID )`
 
+### `invp_label-{vehicle_attribute}`
+Vehicle attribute labels are wrapped in filters so they may be customized.
+
+ - `apply_filters( 'invp_label-beam', 'Beam' )`
+ - `apply_filters( 'invp_label-book_value', 'Book Value' )`
+ - `apply_filters( 'invp_label-color', 'Exterior' )`
+ - `apply_filters( 'invp_label-drivetype', 'Drive Type' )`
+ - `apply_filters( 'invp_label-engine', 'Engine' )`
+ - `apply_filters( 'invp_label-hull_material', 'Hull Material' )`
+ - `apply_filters( 'invp_label-interior_color', 'Interior' )`
+ - `apply_filters( 'invp_label-length', 'Length' )`
+ - `apply_filters( 'invp_label-stock_number', 'Stock' )`
+ - `apply_filters( 'invp_label-transmission', 'Transmission' )`
+ - `apply_filters( 'invp_label-vin', 'boat' == $vehicle->type ? 'HIN' : 'VIN' )`
+
+
 ### `invp_odometer_word`
 Wraps the odometer unit words "Miles" and "Mileage" to allow the support of other units. This filter was introduced simultaneously with our add-on plugin, [Kilometers Instead of Miles](https://inventorypresser.com/products/plugins/kilometers-instead-of-miles/).
 

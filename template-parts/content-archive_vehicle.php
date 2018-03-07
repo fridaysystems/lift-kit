@@ -82,7 +82,7 @@ if ( $vehicle->vin ) {
 if( 'boat' == $vehicle->type ) {
 	//Beam
 	if ( $vehicle->beam ) {
-		$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( 'invp_abel-beam', 'Beam' ), $vehicle->beam );
+		$vehicle_info_bottom .= sprintf( $summary_template, apply_filters( 'invp_label-beam', 'Beam' ), $vehicle->beam );
 	}
 	//Length
 	if ( $vehicle->length ) {
