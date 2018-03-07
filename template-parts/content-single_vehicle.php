@@ -221,7 +221,7 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 				}
 
 				// autocheck icon
-				if ( isset( $GLOBALS['_dealer_settings']['autocheck_id'] ) && $GLOBALS['_dealer_settings']['autocheck_id']) {
+				if ( isset( $invp_lift_kit->settings['autocheck_id'] ) && $invp_lift_kit->settings['autocheck_id'] ) {
 					echo $vehicle->autocheck_icon_html();
 				}
 ?>

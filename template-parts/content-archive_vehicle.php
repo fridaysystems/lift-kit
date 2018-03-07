@@ -148,7 +148,7 @@ if( 'boat' == $vehicle->type ) {
 				<?php
 				// carfax
 				$carfax_html = $vehicle->carfax_icon_html();
-				if ( '' != $carfax_html ) {
+				if ( $invp_lift_kit->settings['use_carfax'] && '' != $carfax_html ) {
 					?><div class="carfax-wrapper"><?php
 					echo $carfax_html;
 				?></div><?php
