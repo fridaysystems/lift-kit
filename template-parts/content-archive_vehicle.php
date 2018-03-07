@@ -22,9 +22,13 @@ if (method_exists($vehicle, 'get_book_value') && ( ! isset( $GLOBALS['_dealer_se
 }
 
 // MSRP
-if ( isset( $GLOBALS['_dealer_settings']['msrp_label'] ) && $GLOBALS['_dealer_settings']['msrp_label'] && isset( $vehicle->msrp ) && $vehicle->msrp ) {
+if ( isset( $vehicle->msrp ) && $vehicle->msrp ) {
 	$msrp = is_numeric( $vehicle->msrp ) ? number_format( $vehicle->msrp, 0, '.', ',' ) : $vehicle->msrp;
-	$vehicle_info_top .= sprintf( $summary_template, $GLOBALS['_dealer_settings']['msrp_label'], $msrp );
+	$vehicle_info_top .= sprintf(
+		$summary_template,
+		apply_filters( 'invp_label-msrp', 'MSRP' ),
+		$msrp
+	);
 }
 // Odometer
 if ( $vehicle->odometer( ' ' . apply_filters( 'invp_odometer_word', 'Miles' ) ) && $vehicle->type != 'boat' ) {

@@ -27,6 +27,7 @@ Vehicle attribute labels are wrapped in filters so they may be customized.
  - `apply_filters( 'invp_label-hull_material', 'Hull Material' )`
  - `apply_filters( 'invp_label-interior_color', 'Interior' )`
  - `apply_filters( 'invp_label-length', 'Length' )`
+ - `apply_filters( 'invp_label-msrp', 'MSRP' )`
  - `apply_filters( 'invp_label-stock_number', 'Stock' )`
  - `apply_filters( 'invp_label-transmission', 'Transmission' )`
  - `apply_filters( 'invp_label-vin', 'boat' == $vehicle->type ? 'HIN' : 'VIN' )`

@@ -131,9 +131,13 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 					}
 
 					// MSRP
-					if ( isset( $GLOBALS['_dealer_settings']['msrp_label'] ) && $GLOBALS['_dealer_settings']['msrp_label'] && isset( $vehicle->msrp ) && $vehicle->msrp ) {
+					if ( isset( $vehicle->msrp ) && $vehicle->msrp ) {
 						$msrp = is_numeric( $vehicle->msrp ) ? number_format( $vehicle->msrp, 0, '.', ',' ) : $vehicle->msrp;
-						echo sprintf( $summary_template, $GLOBALS['_dealer_settings']['msrp_label'], $msrp );
+						echo sprintf(
+							$summary_template,
+							apply_filters( 'invp_label-msrp', 'MSRP' ),
+							$msrp
+						);
 					}
 
 					// Odometer
