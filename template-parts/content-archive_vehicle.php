@@ -145,9 +145,12 @@ if( 'boat' == $vehicle->type ) {
 				</div>
 			</div>
 			<div class="vehicle-cell vehicle-cell-set">
-				<?php if ( isset( $GLOBALS['_dealer_settings']['use_carfax'] ) && isset( $GLOBALS['_dealer_settings']['use_carfax'] ) ) { //carfax
+				<?php
+				// carfax
+				$carfax_html = $vehicle->carfax_icon_html();
+				if ( '' != $carfax_html ) {
 					?><div class="carfax-wrapper"><?php
-					echo $vehicle->carfax_icon_html();
+					echo $carfax_html;
 				?></div><?php
 				} ?>
 
