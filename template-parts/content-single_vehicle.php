@@ -121,7 +121,7 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 
 				<?php
 				// if dealership has multiple locations, display the location of this vehicle
-				if ( isset( $GLOBALS['_dealer_settings']['multiple_locations'] ) && $GLOBALS['_dealer_settings']['multiple_locations'] && $vehicle->location) {
+				if ( isset( $invp_lift_kit ) && $invp_lift_kit->have_multiple_locations() && $vehicle->location) {
 							$location_msg = __( 'This can be seen at our ' ) . '<strong>' . $vehicle->location . '</strong>' . __( ' location.' );
 							echo '<div class="vehicle-location">' . apply_filters( 'invp_vehicle_location_sentence', $location_msg, $vehicle->location ) . '</div>';
 					} ?>

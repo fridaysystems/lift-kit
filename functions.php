@@ -18,15 +18,6 @@ class Inventory_Presser_Lift_Kit {
 		add_theme_support( 'post-thumbnails', array( self::CUSTOM_POST_TYPE ) );
 	}
 
-	//Maintain a global boolean to indicate if this dealer has multiple locations
-	function count_vehicle_locations() {
-		$location_info = get_terms( 'location', array(
-			'fields'     => 'id=>name',
-			'hide_empty' => false
-		) );
-		$GLOBALS['_dealer_settings']['multiple_locations'] = ( count( $location_info ) > 1 );
-	}
-
 	//Enqueue scripts and styles.
 	function css_and_javascript_includes() {
 
@@ -84,6 +75,14 @@ class Inventory_Presser_Lift_Kit {
 		$GLOBALS['_dealer_settings'] = get_option( '_dealer_settings', $_dealer_options['option_defaults'] );
 	}
 
+	function have_multiple_locations() {
+		$location_info = get_terms( 'location', array(
+			'fields'     => 'id=>name',
+			'hide_empty' => false
+		) );
+		return ( count( $location_info ) > 1 );
+	}
+
 	//Register widget areas used on vehicle details pages
 	function single_vehicle_sidebars() {
 		register_sidebar( array(
@@ -107,5 +106,5 @@ class Inventory_Presser_Lift_Kit {
 		));
 	}
 }
-$lift_kit_20173585462349 = new Inventory_Presser_Lift_Kit();
-$lift_kit_20173585462349->hooks();
+$invp_lift_kit = new Inventory_Presser_Lift_Kit();
+$invp_lift_kit->hooks();
