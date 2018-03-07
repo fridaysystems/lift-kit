@@ -98,16 +98,7 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 					?>
 
 					<?php
-					// if a page is set to be the append page, display it
-					if ( isset( $GLOBALS['_dealer_settings']['append_page'] ) && $GLOBALS['_dealer_settings']['append_page']) {
-						$append_post = get_post($GLOBALS['_dealer_settings']['append_page']);
-						$append_content = apply_filters('the_content', $append_post->post_content);
-						echo '<hr/>'.$append_content;
-					}
-					?>
-
-					<?php
-					// widget area, main column bleow vehicle
+					// widget area, main column below vehicle
 					if( is_active_sidebar( 'sidebar-below-single-vehicle' ) ) {
 						dynamic_sidebar( 'sidebar-below-single-vehicle' );
 					}
