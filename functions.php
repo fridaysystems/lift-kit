@@ -13,7 +13,7 @@ class Inventory_Presser_Lift_Kit {
 
 	const CUSTOM_POST_TYPE = 'inventory_vehicle';
 
-	var $settings; //a place to hold the option full of settings
+	var $settings; //a place to hold the core plugin's option full of settings
 
 	//Add featured image support to vehicles
 	function add_thumbnail_support() {
@@ -72,7 +72,7 @@ class Inventory_Presser_Lift_Kit {
 	}
 
 	function get_settings() {
-		$this->settings = get_option( '_dealer_settings' );
+		$this->settings = get_option( '_dealer_settings' ); //this is where the plugin Inventory Presser stores its settings
 	}
 
 	function have_multiple_locations() {
