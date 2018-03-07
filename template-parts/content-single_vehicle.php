@@ -123,11 +123,9 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 					$summary_template = '<div class="vehicle-summary-item"><div class="vehicle-summary-item-label">%s:</div><div class="vehicle-summary-item-value">%s</div></div>';
 
 					// Book Value
-					if (method_exists($vehicle, 'get_book_value') && ( ! isset( $GLOBALS['_dealer_settings']['price_display_type'] ) || $GLOBALS['_dealer_settings']['price_display_type'] != 'genes' ) ) {
-						$book_value = $vehicle->get_book_value();
-						if( $book_value > 0  && $book_value > intval($vehicle->price) ) {
-							echo sprintf( $summary_template, apply_filters( 'invp_label-book_value', 'Book Value' ), '$' . number_format( $book_value, 0, '.', ',' ) );
-						}
+					$book_value = $vehicle->get_book_value();
+					if( $book_value > 0  && $book_value > intval( $vehicle->price ) ) {
+						echo sprintf( $summary_template, apply_filters( 'invp_label-book_value', 'Book Value' ), '$' . number_format( $book_value, 0, '.', ',' ) );
 					}
 
 					// MSRP

@@ -14,11 +14,9 @@ $vehicle_info_top = '';
 $vehicle_info_bottom = '';
 
 // Book Value
-if (method_exists($vehicle, 'get_book_value') && ( ! isset( $GLOBALS['_dealer_settings']['price_display_type'] ) || $GLOBALS['_dealer_settings']['price_display_type'] != 'genes' ) ) {
-	$book_value = $vehicle->get_book_value();
-	if( $book_value > 0  && $book_value > intval($vehicle->price) ) {
-		$vehicle_info_top .= sprintf( $summary_template, apply_filters( 'invp_label-book_value', 'Book Value' ), '$' . number_format( $book_value, 0, '.', ',' ) );
-	}
+$book_value = $vehicle->get_book_value();
+if( $book_value > 0  && $book_value > intval( $vehicle->price ) ) {
+	$vehicle_info_top .= sprintf( $summary_template, apply_filters( 'invp_label-book_value', 'Book Value' ), '$' . number_format( $book_value, 0, '.', ',' ) );
 }
 
 // MSRP
