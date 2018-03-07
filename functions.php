@@ -13,6 +13,8 @@ class Inventory_Presser_Lift_Kit {
 
 	const CUSTOM_POST_TYPE = 'inventory_vehicle';
 
+	var $settings; //a place to hold the option full of settings
+
 	//Add featured image support to vehicles
 	function add_thumbnail_support() {
 		add_theme_support( 'post-thumbnails', array( self::CUSTOM_POST_TYPE ) );
@@ -55,7 +57,7 @@ class Inventory_Presser_Lift_Kit {
 
 	function hooks() {
 		add_action( 'after_setup_theme', array( $this, 'add_thumbnail_support' ) );
-		add_action( 'after_setup_theme', array( $this, 'initialize_global_dealer_settings' ) );
+		add_action( 'after_setup_theme', array( $this, 'get_settings' ) );
 		add_action( 'widgets_init', array( $this, 'single_vehicle_sidebars' ) );
 		add_action( 'init', array( $this, 'count_vehicle_locations' ) );
 		if( is_child_theme() ) {
@@ -69,10 +71,8 @@ class Inventory_Presser_Lift_Kit {
 	    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	}
 
-	//Load an option into a global variable
-	function initialize_global_dealer_settings() {
-		global $_dealer_options;
-		$GLOBALS['_dealer_settings'] = get_option( '_dealer_settings', $_dealer_options['option_defaults'] );
+	function get_settings() {
+		$this->settings = get_option( '_dealer_settings' );
 	}
 
 	function have_multiple_locations() {
