@@ -9,8 +9,7 @@
 
 $vehicle = new Inventory_Presser_Vehicle(get_the_ID());
 
-$large_image_list =  $vehicle->get_images_html_array('large');
-$thumb_image_list =  $vehicle->get_images_html_array('thumb');
+$image_url_lists = $vehicle->get_images_html_array( array( 'large', 'thumb' ) );
 
 ?>
 
@@ -31,16 +30,16 @@ $thumb_image_list =  $vehicle->get_images_html_array('thumb');
 
 					<div id="slider" class="flexslider">
 					  <ul class="slides">
-					  	<?php foreach($large_image_list as $image): ?>
+					  	<?php foreach( $image_url_lists['large'] as $image ): ?>
 					    <li><?php echo $image ?></li>
 					    <?php endforeach; ?>
 					  </ul>
 					</div>
 
-					<?php if (count($thumb_image_list) > 1) { ?>
+					<?php if ( count( $image_url_lists['thumb'] ) > 1 ) { ?>
 					<div id="carousel" class="flexslider no-preview">
 					  <ul class="slides">
-					  	<?php foreach($thumb_image_list as $image): ?>
+					  	<?php foreach( $image_url_lists['thumb'] as $image): ?>
 					    <li><?php echo $image ?></li>
 					    <?php endforeach; ?>
 					  </ul>
