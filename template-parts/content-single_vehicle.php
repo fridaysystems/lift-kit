@@ -222,9 +222,7 @@ $image_url_lists = $vehicle->get_images_html_array( array( 'large', 'thumb' ) );
 				}
 
 				// autocheck icon
-				if ( isset( $invp_lift_kit->settings['autocheck_id'] ) && $invp_lift_kit->settings['autocheck_id'] ) {
-					echo $vehicle->autocheck_icon_html();
-				}
+				echo do_shortcode( sprintf( '[autocheck_button vin="%s"]', $vehicle->vin ) );
 ?>
 			</div><!--/.post-content-->
 
