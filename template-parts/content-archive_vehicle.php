@@ -163,7 +163,7 @@ if( 'boat' == $vehicle->type ) {
 				 * shortcode will exist
 				 */
 				if ( shortcode_exists( 'invp_cargurus_badge' ) ) {
-					do_shortcode( '[invp_cargurus_badge]' );
+					echo do_shortcode( '[invp_cargurus_badge]' );
 				} ?>
 
 				<a class="_button _button-small _button-block" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">View Details</a>

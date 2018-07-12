@@ -35,7 +35,11 @@ get_header(); ?>
 							<option data-order="DESC" value="inventory_presser_year">Year Newest</option>
 						</select>
 					</div>
-					<div class="vehicle-archive-header"><?php echo do_shortcode('[posts_per_page_drop_down]'); ?></div>
+					<?php
+						if( shortcode_exists( 'posts_per_page_drop_down' ) ) { ?>
+					<div class="vehicle-archive-header"><?php echo do_shortcode('[posts_per_page_drop_down]'); ?></div><?php
+						}
+					?>
 				</div>
 			</header><!-- .entry-header -->
 

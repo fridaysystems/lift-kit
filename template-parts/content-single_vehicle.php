@@ -222,7 +222,9 @@ $image_url_lists = $vehicle->get_images_html_array( array( 'large', 'thumb' ) );
 				}
 
 				// autocheck icon
-				echo do_shortcode( sprintf( '[autocheck_button vin="%s"]', $vehicle->vin ) );
+				if( shortcode_exists( 'autocheck_button' ) ) {
+					echo do_shortcode( sprintf( '[autocheck_button vin="%s"]', $vehicle->vin ) );
+				}
 ?>
 			</div><!--/.post-content-->
 
