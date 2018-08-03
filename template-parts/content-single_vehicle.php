@@ -215,7 +215,7 @@ $image_url_lists = $vehicle->get_images_html_array( array( 'large', 'thumb' ) );
 				<?php
 				// carfax
 				$carfax_html = $vehicle->carfax_icon_html();
-				if ( $invp_lift_kit->settings['use_carfax'] && '' != $carfax_html ) {
+				if ( isset( $invp_lift_kit ) && $invp_lift_kit->settings['use_carfax'] && '' != $carfax_html ) {
 					?><div class="carfax-wrapper"><?php
 					echo $carfax_html;
 				?></div><?php
