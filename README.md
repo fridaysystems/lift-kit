@@ -5,11 +5,12 @@ Lift Kit is a set of inventory listing and vehicle detail files that can be adde
 
 - Use Lift Kit as a basis for a new child theme by adding a [header comment section](https://developer.wordpress.org/themes/basics/main-stylesheet-style-css/#example) to [style.css](style.css)
 - Deploy in an existing theme by combining the contents of [style.css](style.css) and [functions.php](functions.php) with their existing counterparts and adding the remaining files
+- Activate the theme on a site running Inventory Presser that contains vehicles
 
 
 ## Filter hooks
 
-Our custom hooks are prefixed with `invp_`.
+This is an index of the filter hooks that live in this code. Our custom hooks are prefixed with `invp_`.
 
 ### `invp_accordian_content`
 Lift Kit's vehicle details page optionally includes a content accordian to display collapsible content. We like to use the accordian for data from third-parties like standard vehicle features or crash test ratings. This filter allows developers to modify content in the accordian.
