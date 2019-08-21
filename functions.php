@@ -13,7 +13,7 @@ class Inventory_Presser_Lift_Kit {
 
 	const CUSTOM_POST_TYPE = 'inventory_vehicle';
 
-	var $settings; //a place to hold the core plugin's option full of settings
+	var $settings; //a place to hold Inventory Presser's settings
 
 	//Add featured image support to vehicles
 	function add_thumbnail_support() {
