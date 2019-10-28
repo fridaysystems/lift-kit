@@ -164,9 +164,11 @@ if( 'boat' == $vehicle->type ) {
 				 */
 				if ( shortcode_exists( 'invp_cargurus_badge' ) ) {
 					echo do_shortcode( '[invp_cargurus_badge]' );
-				} ?>
+				}
 
-				<a class="_button _button-small _button-block" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">View Details</a>
+				do_action( 'invp_listing_buttons', $vehicle );
+
+				?><a class="_button _button-small _button-block" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">View Details</a>
 			</div>
 		</div>
 
